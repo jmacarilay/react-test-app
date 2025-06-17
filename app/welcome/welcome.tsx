@@ -7,6 +7,7 @@ export function Welcome() {
     const file = event.target.files[0];
     if (file) {
       setFileInfo(file);
+      console.log("File", file);
     }
   };
 
