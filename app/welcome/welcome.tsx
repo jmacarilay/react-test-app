@@ -1,9 +1,12 @@
+import { useState } from "react";
+
 export function Welcome() {
-  const handleChange = (event) => {
+  const [fileInfo, setFileInfo] = useState([]);
+
+  const handleChange = (event: any) => {
     const file = event.target.files[0];
     if (file) {
-      console.log("Selected file:", file);
-      // You can now upload or preview this file
+      setFileInfo(file);
     }
   };
 
@@ -15,6 +18,10 @@ export function Welcome() {
         capture="environment" // "user" for front camera
         onChange={handleChange}
       />
+
+      <div>
+        {fileInfo}
+      </div>
     </main>
   );
 }
