@@ -3,12 +3,9 @@ import { useState } from "react";
 export function Welcome() {
   const [fileInfo, setFileInfo] = useState([]);
 
-  const handleChange = (event: any) => {
+  const handleChange = (event) => {
     const file = event.target.files[0];
-    if (file) {
-      setFileInfo(file);
-      console.log("File", file);
-    }
+    setFileInfo(file);
   };
 
   return (
@@ -17,11 +14,11 @@ export function Welcome() {
         type="file"
         accept="image/*"
         capture="environment" // "user" for front camera
-        onChange={handleChange}
+        onChange={(e) => handleChange(e)}
       />
 
       <div>
-        {fileInfo}
+        {fileInfo.size}
       </div>
     </main>
   );
