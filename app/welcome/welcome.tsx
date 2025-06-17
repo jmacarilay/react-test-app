@@ -5,6 +5,7 @@ export function Welcome() {
 
   const handleChange = (event) => {
     const file = event.target.files[0];
+    console.log("File size", file.size);
     setFileInfo(file);
   };
 
