@@ -11,11 +11,11 @@ export function Welcome() {
     console.log("Welcome component mounted");
 
     my.getEnv(function(res: any) {
-      alert(res.miniprogram);
+      // alert(res.miniprogram);
     });
 
     my.onMessage = function(e: any) {
-      console.log(e); // {'sendToWebView': '1'}
+      alert("Received message: " + JSON.stringify(e));
     };
   }, []);
 
