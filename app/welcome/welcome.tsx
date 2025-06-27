@@ -1,26 +1,23 @@
-import { useState } from "react";
+import { useEffect } from "react";
+
+declare global {
+  interface Window {
+    my?: any;
+  }
+}
 
 export function Welcome() {
-  const [fileInfo, setFileInfo] = useState([]);
+  useEffect(() => {
+    console.log("Welcome component mounted");
 
-  const handleChange = (event) => {
-    const file = event.target.files[0];
-    console.log("File size", file.size);
-    setFileInfo(file);
-  };
+    my.getEnv(function(res: any) {
+      alert(res)
+    });
+  }, []);
 
   return (
     <main>
-      <input
-        type="file"
-        accept="image/*"
-        capture="environment" // "user" for front camera
-        onChange={(e) => handleChange(e)}
-      />
-
-      <div>
-        {fileInfo.size}
-      </div>
+      Hello World
     </main>
   );
 }
