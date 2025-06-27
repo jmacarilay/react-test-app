@@ -7,16 +7,16 @@ declare global {
 }
 
 export function Welcome() {
-  const [message, setMessage] = useState(null);
+  const [message, setMessage] = useState("Testing...");
 
-  useEffect(() => {
-    my.onMessage = function(e) {
-      console.log(e);
-      setMessage(e);
-    };
+  // useEffect(() => {
+  //   my.onMessage = function(e) {
+  //     console.log(e);
+  //     setMessage(e);
+  //   };
 
-    my.postMessage({'sendToMiniProgram': '0'});
-  }, []);
+  //   my.postMessage({'sendToMiniProgram': '0'});
+  // }, []);
 
   return (
     <main>
