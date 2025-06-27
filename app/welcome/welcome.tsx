@@ -17,10 +17,12 @@ export function Welcome() {
 
     my.postMessage({'sendToMiniProgram': '0'});
 
-    my.getStorage({
+    my.setStorage({
       key: 'currentCity',
-      success: function(res: any) {
-        // alert(res.data);
+      data: {
+        cityName: 'London',
+        adCode: '330100',
+        spell: ' London',
       },
     });
   }, []);
