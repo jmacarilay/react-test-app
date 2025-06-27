@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { use, useEffect, useState } from "react";
 
 declare global {
   interface Window {
@@ -12,24 +12,19 @@ export function Welcome() {
   useEffect(() => {
     my.onMessage = function(e: any) {
       setMessage(e);
-      alert('Received message: ' + JSON.stringify(e));
     };
 
     my.postMessage({'sendToMiniProgram': '0'});
-
-    my.setStorage({
-      key: 'currentCity',
-      data: {
-        cityName: 'London',
-        adCode: '330100',
-        spell: ' London',
-      },
-    });
   }, []);
+
+
+  useEffect(() => {
+    alert('Received message: ' + JSON.stringify(message));
+  }, [message]);
 
   return (
     <main>
-      <h4 className="text-red-500">WELCOME</h4>
+      <h4 className="text-red-500">WELCOME PO!</h4>
 
       <p className="text-red-500">Hello: {message}</p>
     </main>
