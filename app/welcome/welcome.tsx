@@ -1,4 +1,4 @@
-import { use, useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
 declare global {
   interface Window {
@@ -7,26 +7,33 @@ declare global {
 }
 
 export function Welcome() {
-  const [message, setMessage] = useState(null);
+  const [message, setMessage] = useState<string>('...waiting');
 
   useEffect(() => {
-    my.onMessage = function(e: any) {
-      setMessage(e);
+    if (!window.my) {
+      console.warn('Not in Mini Program');
+      return;
+    }
+
+    // Listen for messages FROM Mini Program
+    window.my.onMessage = function (e: any) {
+      console.log('✅ React received from Mini Program:', e);
+      setMessage(JSON.stringify(e?.data));
     };
 
-    my.postMessage({'sendToMiniProgram': '0'});
+    // Send message TO Mini Program after slight delay
+    setTimeout(() => {
+      console.log('🚀 React sending to Mini Program...');
+      window.my.postMessage({
+        sendToMiniProgram: '0'
+      });
+    }, 500);
   }, []);
 
-
-  useEffect(() => {
-    alert('Received message: ' + JSON.stringify(message));
-  }, [message]);
-
   return (
-    <main>
-      <h4 className="text-red-500">WELCOME PO!</h4>
-
-      <p className="text-red-500">Hello: {message}</p>
-    </main>
+    <div>
+      <h2>Hello WebView</h2>
+      <p>Message: {message}</p>
+    </div>
   );
 }
