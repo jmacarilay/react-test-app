@@ -7,15 +7,22 @@ declare global {
 }
 
 export function Welcome() {
-  const [message, setMessage] = useState("Testing...");
+  const [message, setMessage] = useState(null);
 
   useEffect(() => {
-    my.onMessage = function(e) {
+    my.onMessage = function(e: any) {
       console.log(e);
       setMessage(e);
     };
 
     my.postMessage({'sendToMiniProgram': '0'});
+
+    my.getStorage({
+      key: 'currentCity',
+      success: function(res: any) {
+        alert(res.data);
+      },
+    });
   }, []);
 
   return (
