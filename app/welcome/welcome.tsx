@@ -11,8 +11,8 @@ export function Welcome() {
 
   useEffect(() => {
     my.onMessage = function(e: any) {
-      console.log(e);
       setMessage(e);
+      alert('Received message: ' + JSON.stringify(e));
     };
 
     my.postMessage({'sendToMiniProgram': '0'});
@@ -20,7 +20,7 @@ export function Welcome() {
     my.getStorage({
       key: 'currentCity',
       success: function(res: any) {
-        alert(res.data);
+        // alert(res.data);
       },
     });
   }, []);
