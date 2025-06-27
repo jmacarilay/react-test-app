@@ -21,6 +21,7 @@ export function Welcome() {
   return (
     <main>
       Hello World
+
       {message && <p>Hello: {message}</p>}
     </main>
   );
