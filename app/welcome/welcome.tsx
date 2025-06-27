@@ -8,15 +8,11 @@ declare global {
 
 export function Welcome() {
   useEffect(() => {
-    my.getEnv(function(res: any) {
-      // alert(res.miniprogram);
-    });
-
-    my.onMessage = function(e: any) {
-      alert("Received message: " + e);
+    my.onMessage = function(e) {
+      alert(e); //{'sendToWebView': '1'}
     };
 
-    my.postMessage({name:"test web-view"});
+    my.postMessage({'sendToMiniProgram': '0'});
   }, []);
 
   return (
