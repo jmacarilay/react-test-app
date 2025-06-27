@@ -7,7 +7,7 @@ declare global {
 }
 
 export function Welcome() {
-  const [message, setMessage] = useState<string | null>(null));
+  const [message, setMessage] = useState(null);
 
   useEffect(() => {
     my.onMessage = function(e) {
