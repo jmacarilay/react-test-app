@@ -7,10 +7,11 @@ declare global {
 }
 
 export function Welcome() {
-  const [message, setMessage] = useState<string | null>(null);
+  const [message, setMessage] = useState<string | null>(null));
 
   useEffect(() => {
     my.onMessage = function(e) {
+      console.log(e);
       setMessage(e);
     };
 
@@ -20,7 +21,7 @@ export function Welcome() {
   return (
     <main>
       Hello World
-      {message && <p>{message}</p>}
+      {message && <p>Hello: {message}</p>}
     </main>
   );
 }
