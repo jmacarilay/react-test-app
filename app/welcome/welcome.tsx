@@ -8,15 +8,15 @@ declare global {
 
 export function Welcome() {
   useEffect(() => {
-    console.log("Welcome component mounted");
-
     my.getEnv(function(res: any) {
       // alert(res.miniprogram);
     });
 
     my.onMessage = function(e: any) {
-      alert("Received message: " + JSON.stringify(e));
+      alert("Received message: " + e);
     };
+
+    my.postMessage({name:"test web-view"});
   }, []);
 
   return (
