@@ -13,6 +13,10 @@ export function Welcome() {
     my.getEnv(function(res: any) {
       alert(res.miniprogram);
     });
+
+    my.onMessage = function(e: any) {
+      console.log(e); // {'sendToWebView': '1'}
+    };
   }, []);
 
   return (
