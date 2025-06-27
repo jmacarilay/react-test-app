@@ -9,20 +9,20 @@ declare global {
 export function Welcome() {
   const [message, setMessage] = useState("Testing...");
 
-  // useEffect(() => {
-  //   my.onMessage = function(e) {
-  //     console.log(e);
-  //     setMessage(e);
-  //   };
+  useEffect(() => {
+    my.onMessage = function(e) {
+      console.log(e);
+      setMessage(e);
+    };
 
-  //   my.postMessage({'sendToMiniProgram': '0'});
-  // }, []);
+    my.postMessage({'sendToMiniProgram': '0'});
+  }, []);
 
   return (
     <main>
-      Hello World
+      <h4 className="text-red-500">WELCOME</h4>
 
-      {message && <p>Hello: {message}</p>}
+      {message && <p className="text-red-500">Hello: {message}</p>}
     </main>
   );
 }
