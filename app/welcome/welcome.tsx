@@ -11,7 +11,7 @@ export function Welcome() {
     console.log("Welcome component mounted");
 
     my.getEnv(function(res: any) {
-      alert(res)
+      alert(res.miniprogram);
     });
   }, []);
 
