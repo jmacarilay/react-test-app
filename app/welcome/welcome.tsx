@@ -29,7 +29,7 @@ export function Welcome() {
     <main>
       <h4 className="text-red-500">WELCOME</h4>
 
-      {message && <p className="text-red-500">Hello: {message}</p>}
+      <p className="text-red-500">Hello: {message}</p>
     </main>
   );
 }
