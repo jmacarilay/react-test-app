@@ -1,13 +1,9 @@
-import type { Route } from "./+types/home";
-import { Welcome } from "../welcome/welcome";
-
-export function meta({}: Route.MetaArgs) {
-  return [
-    { title: "Testing my app" },
-    { name: "description", content: "Welcome to React Router!" },
-  ];
-}
+import { Link } from "react-router";
 
 export default function Home() {
-  return <Welcome />;
+  return (
+    <div>
+      <Link to="https://gcashdev.page.link/?link=https://gcash.splashscreen/?redirect=gcash://com.mynt.gcash/app/006300121300?appId=2170020246304410&page=pages/index/index&apn=com.globe.gcash.android.uat.tokyo&ibi=xyz.mynt.gcashdev">Click to Mini Program</Link>
+    </div>
+  );
 }
