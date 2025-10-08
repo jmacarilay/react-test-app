@@ -26,7 +26,7 @@ export default function Home() {
     <div>
       <Link to="https://gcashdev.page.link/?link=https%3A%2F%2Fgcash.splashscreen%2F%3Fredirect%3Dgcash%3A%2F%2Fcom.mynt.gcash%2Fapp%2F006300121300%3FappId%3D2170020233750696%2526page%253Dpages%252Fredirect%252Fredirect%253Ftype%253Dreferrals%2526query%253Dcode%253Dariel-campaign-2025&apn=com.globe.gcash.android.uat&ibi=xyz.mynt.gcashdev">Click to Mini Program DEV</Link><br />
 
-      <Link to="https://gcashdev.page.link/?link=https%3A%2F%2Fgcash.splashscreen%2F%3Fredirect%3Dgcash%3A%2F%2Fcom.mynt.gcash%2Fapp%2F006300121300%3FappId%3D2170020233750696%2526page%253Dpages%252Fredirect%252Fredirect%253Fquery%253Dtype=referrals,code=ariel-campaign-2026&apn=com.globe.gcash.android.uat&ibi=xyz.mynt.gcashdev">Click to Mini Program DEV 1 params only</Link><br />
+      <Link to="https://gcashdev.page.link/?link=https%3A%2F%2Fgcash.splashscreen%2F%3Fredirect%3Dgcash%3A%2F%2Fcom.mynt.gcash%2Fapp%2F006300121300%3FappId%3D2170020233750696%2526page%253Dpages%252Fredirect%252Fredirect%253Fquery%253Dtype=redirect,code=ariel-campaign-2026&apn=com.globe.gcash.android.uat&ibi=xyz.mynt.gcashdev">Click to Mini Program DEV 1 params only</Link><br />
 
       <Link to="https://gcashdev.page.link/?link=https://gcash.splashscreen/?redirect=gcash%3A%2F%2Fcom.mynt.gcash%2Fapp%2F006300121300%3FappId%2170020233750696%2526page%253Dpages%252Fredirect%252Fredirect%253FselectedProduct%253Dabc%2526query%253DdiscountCode%253Dxyz&apn=com.globe.gcash.android.uat&ibi=xyz.mynt.gcashdev">Gcash sample URL</Link><br />
 
