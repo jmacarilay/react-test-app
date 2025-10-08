@@ -26,9 +26,13 @@ export default function Home() {
     <div>
       <Link to="https://gcashdev.page.link/?link=https%3A%2F%2Fgcash.splashscreen%2F%3Fredirect%3Dgcash%3A%2F%2Fcom.mynt.gcash%2Fapp%2F006300121300%3FappId%3D2170020233750696%2526page%253Dpages%252Fredirect%252Fredirect%253Ftype%253Dreferrals%2526query%253Dcode%253Dariel-campaign-2025&apn=com.globe.gcash.android.uat&ibi=xyz.mynt.gcashdev">Click to Mini Program DEV</Link><br />
 
-      <Link to="https://gcashdev.page.link/?link=https%3A%2F%2Fgcash.splashscreen%2F%3Fredirect%3Dgcash%3A%2F%2Fcom.mynt.gcash%2Fapp%2F006300121300%3FappId%3D2170020233750696%2526page%253Dpages%252Fredirect%252Fredirect%253Fquery%253Dtype=redirect,code=ariel-campaign-2026&apn=com.globe.gcash.android.uat&ibi=xyz.mynt.gcashdev">Click to Mini Program DEV 1 params only</Link><br />
+      <Link to="https://gcashdev.page.link/?link=https%3A%2F%2Fgcash.splashscreen%2F%3Fredirect%3Dgcash%3A%2F%2Fcom.mynt.gcash%2Fapp%2F006300121300%3FappId%3D2170020233750696%2526page%253Dpages%252Fredirect%252Fredirect%253Fquery%253Dtype=redirect,code=ariel-campaign-2026,source=QR&apn=com.globe.gcash.android.uat&ibi=xyz.mynt.gcashdev">Gcash QR URL DEV</Link><br />
+  
+      <Link to="https://gcashdev.page.link/?link=https%3A%2F%2Fgcash.splashscreen%2F%3Fredirect%3Dgcash%3A%2F%2Fcom.mynt.gcash%2Fapp%2F006300121300%3FappId%3D2170020233750696%2526page%253Dpages%252Fredirect%252Fredirect%253Fquery%253Dtype=redirect,code=ariel-campaign-2026,source=FB&apn=com.globe.gcash.android.uat&ibi=xyz.mynt.gcashdev">Gcash FB URL DEV</Link><br />
 
-      <Link to="https://gcashapp.page.link/?link=https://gcash.splashscreen/?redirect%3Dgcash%3A%2F%2Fcom.mynt.gcash%2Fapp%2F006300121300%3FappId%3D2170020233750696%2526page%253Dpages%252Fredirect%252Fredirect%253Fquery%253Dtype=redirect,code=ariel-campaign-2026&apn=com.globe.gcash.android&isi=520020791&ibi=com.globetel.gcash">Gcash sample URL</Link><br />
+      <Link to="https://gcashapp.page.link/?link=https://gcash.splashscreen/?redirect%3Dgcash%3A%2F%2Fcom.mynt.gcash%2Fapp%2F006300121300%3FappId%3D2170020233750696%2526page%253Dpages%252Fredirect%252Fredirect%253Fquery%253Dtype=redirect,code=ariel-campaign-2026,source=qr&apn=com.globe.gcash.android&isi=520020791&ibi=com.globetel.gcash">Gcash QR URL</Link><br />
+
+      <Link to="https://gcashapp.page.link/?link=https://gcash.splashscreen/?redirect%3Dgcash%3A%2F%2Fcom.mynt.gcash%2Fapp%2F006300121300%3FappId%3D2170020233750696%2526page%253Dpages%252Fredirect%252Fredirect%253Fquery%253Dtype=redirect,code=ariel-campaign-2026,source=qr&apn=com.globe.gcash.android&isi=520020791&ibi=com.globetel.gcash">Gcash FB URL</Link><br />
     </div>
   );
 }
