@@ -229,7 +229,7 @@ export default function Home() {
 
   return (
     <div className="text-center text-[#ffffff] bg-[#000000] min-h-screen">
-      <div className="relative max-w-[800px] mx-auto">
+      <div className="relative max-w-[800px] h-[60vh] mx-auto">
         <video
           ref={videoRef}
           playsInline
