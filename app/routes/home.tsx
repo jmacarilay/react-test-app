@@ -234,7 +234,7 @@ export default function Home() {
           ref={videoRef}
           playsInline
           muted
-          className="w-full rounded-[8px] bg-[#000000] pb-10"
+          className="w-full rounded-[8px] bg-[#000000]"
         />
         <div
           className={`guide ${
@@ -248,39 +248,41 @@ export default function Home() {
             {popupMsg}
           </div>
         )}
-      </div>
 
-      <div className="font-mono my-12">
-        <div>
-          Focus: <span className={focusGood ? "text-[#4fc3f7]" : "text-[#f44336]"}>{focusGood ? "OK" : "Blurry"}</span>
+        {/* Overlay bottom controls & status */}
+        <div className="absolute inset-x-0 bottom-0 flex flex-col items-center gap-4 pb-4">
+          <div className="font-mono flex gap-6 text-sm bg-gradient-to-t from-black/70 to-black/0 px-4 py-2 rounded-md">
+            <div>
+              Focus: <span className={focusGood ? "text-[#4fc3f7]" : "text-[#f44336]"}>{focusGood ? "OK" : "Blurry"}</span>
+            </div>
+            <div>
+              Lighting: <span className={lightGood ? "text-[#4fc3f7]" : "text-[#ff9800]"}>{lightGood ? "Good" : "Too Dark"}</span>
+            </div>
+          </div>
+          <div className="flex justify-center gap-10">
+            <button
+              onClick={handleCapture}
+              disabled={uploading}
+              className="text-white text-lg flex flex-col gap-1 items-center justify-center font-bold active:scale-95 transition-transform"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-10">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6.827 6.175A2.31 2.31 0 0 1 5.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 0 0-1.134-.175 2.31 2.31 0 0 1-1.64-1.055l-.822-1.316a2.192 2.192 0 0 0-1.736-1.039 48.774 48.774 0 0 0-5.232 0 2.192 2.192 0 0 0-1.736 1.039l-.821 1.316Z" />
+                <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 12.75a4.5 4.5 0 1 1-9 0 4.5 4.5 0 0 1 9 0ZM18.75 10.5h.008v.008h-.008V10.5Z" />
+              </svg>
+              Take Photo
+            </button>
+            <button
+              onClick={triggerFileSelect}
+              disabled={uploading}
+              className="text-white text-lg flex flex-col gap-1 items-center justify-center font-bold active:scale-95 transition-transform"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-10">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5m-13.5-9L12 3m0 0 4.5 4.5M12 3v13.5" />
+              </svg>
+              {uploading ? "Uploading..." : "Upload Receipt"}
+            </button>
+          </div>
         </div>
-        <div>
-          Lighting: <span className={lightGood ? "text-[#4fc3f7]" : "text-[#ff9800]"}>{lightGood ? "Good" : "Too Dark"}</span>
-        </div>
-      </div>
-
-      <div className="flex justify-center gap-15">
-        <button
-          onClick={handleCapture}
-          disabled={uploading}
-          className="text-white text-xl flex flex-col gap-3 items-center justify-center font-extrabold"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="size-10">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M6.827 6.175A2.31 2.31 0 0 1 5.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 0 0-1.134-.175 2.31 2.31 0 0 1-1.64-1.055l-.822-1.316a2.192 2.192 0 0 0-1.736-1.039 48.774 48.774 0 0 0-5.232 0 2.192 2.192 0 0 0-1.736 1.039l-.821 1.316Z" />
-            <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 12.75a4.5 4.5 0 1 1-9 0 4.5 4.5 0 0 1 9 0ZM18.75 10.5h.008v.008h-.008V10.5Z" />
-          </svg>
-          Take Photo
-        </button>
-        <button
-          onClick={triggerFileSelect}
-          disabled={uploading}
-          className="text-white text-xl flex flex-col gap-3 items-center justify-center font-extrabold"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="size-10">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5m-13.5-9L12 3m0 0 4.5 4.5M12 3v13.5" />
-          </svg>
-          {uploading ? "Uploading..." : "Upload Receipt"}
-        </button>
       </div>
 
       {/* Hidden file input for gallery/folder selection */}
