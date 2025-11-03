@@ -228,37 +228,29 @@ export default function Home() {
   };
 
   return (
-    // Use both h-screen (Tailwind) and inline 100dvh for mobile browsers with dynamic viewport adjustments
-    <div
-      className="flex flex-col text-center text-[#ffffff] bg-[#000000] h-screen"
-      style={{ height: "100dvh" }}
-    >
-      {/* Camera area should consume remaining space above controls */}
-      <div className="relative flex-1 flex items-center justify-center">
-        <div className="relative w-full h-full max-w-[1000px] mx-auto">
-          <video
-            ref={videoRef}
-            playsInline
-            muted
-            className="w-full h-full object-cover rounded-[8px] bg-[#000000]"
-          />
-          <div
-            className={`guide ${
-              !focusGood ? "out-of-focus" : lightGood ? "good" : "too-dark"
-            } pointer-events-none absolute inset-0 rounded-[8px] transition-all duration-300`}
-          />
+    <div className="text-center text-[#ffffff] bg-[#000000] min-h-screen">
+      <div className="relative max-w-[800px] mx-auto">
+        <video
+          ref={videoRef}
+          playsInline
+          muted
+          className="w-full rounded-[8px] bg-[#000000]"
+        />
+        <div
+          className={`guide ${
+            !focusGood ? "out-of-focus" : lightGood ? "good" : "too-dark"
+          } pointer-events-none absolute inset-0 rounded-[8px] transition-all duration-300`}
+        />
 
-          {/* 🔔 Popup message overlay */}
-          {popupMsg && (
-            <div className="popup absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[rgba(0,0,0,0.6)] px-[20px] py-[12px] rounded-[8px] text-[1.2rem] animate-[fade_1.5s_ease]">
-              {popupMsg}
-            </div>
-          )}
-        </div>
+        {/* 🔔 Popup message overlay */}
+        {popupMsg && (
+          <div className="popup absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[rgba(0,0,0,0.6)] px-[20px] py-[12px] rounded-[8px] text-[1.2rem] animate-[fade_1.5s_ease]">
+            {popupMsg}
+          </div>
+        )}
       </div>
 
-      {/* Status & controls section pinned to bottom */}
-  <div className="font-mono py-6">
+      <div className="font-mono my-12">
         <div>
           Focus: <span className={focusGood ? "text-[#4fc3f7]" : "text-[#f44336]"}>{focusGood ? "OK" : "Blurry"}</span>
         </div>
@@ -266,7 +258,8 @@ export default function Home() {
           Lighting: <span className={lightGood ? "text-[#4fc3f7]" : "text-[#ff9800]"}>{lightGood ? "Good" : "Too Dark"}</span>
         </div>
       </div>
-      <div className="flex justify-center gap-15 pb-6">
+
+      <div className="flex justify-center gap-15">
         <button
           onClick={handleCapture}
           disabled={uploading}
