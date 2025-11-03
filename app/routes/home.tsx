@@ -234,7 +234,7 @@ export default function Home() {
           ref={videoRef}
           playsInline
           muted
-          className="w-full rounded-[8px] bg-[#000000]"
+          className="w-full rounded-[8px] bg-[#000000] pb-10"
         />
         <div
           className={`guide ${
