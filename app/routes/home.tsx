@@ -229,7 +229,10 @@ export default function Home() {
 
   return (
     // Use both h-screen (Tailwind) and inline 100dvh for mobile browsers with dynamic viewport adjustments
-    <div className="flex flex-col text-center text-[#ffffff] bg-[#000000] h-screen">
+    <div
+      className="flex flex-col text-center text-[#ffffff] bg-[#000000] h-screen"
+      style={{ height: "100dvh" }}
+    >
       {/* Camera area should consume remaining space above controls */}
       <div className="relative flex-1 flex items-center justify-center">
         <div className="relative w-full h-full max-w-[1000px] mx-auto">
