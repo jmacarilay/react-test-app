@@ -227,6 +227,12 @@ export default function Home() {
     return total / (data.length / 4);
   };
 
+  const centerGuideBorder = !focusGood
+    ? "border-[#ff0000]" // out of focus - red
+    : lightGood
+      ? "border-[#00ff5a]" // good lighting & focus - green-ish
+      : "border-[#ff9900]"; // too dark - orange
+
   return (
     <div className="text-center text-[#ffffff] bg-[#000000] min-h-screen">
       <div className="relative max-w-[800px] mx-auto">
@@ -240,6 +246,11 @@ export default function Home() {
           className={`guide ${
             !focusGood ? "out-of-focus" : lightGood ? "good" : "too-dark"
           } pointer-events-none absolute inset-0 rounded-[8px] transition-all duration-300`}
+        />
+
+        {/* Center framing guide */}
+        <div
+          className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[55%] h-[65%] ${centerGuideBorder} border-[3px] rounded-[6px] pointer-events-none transition-colors duration-300`}
         />
 
         {/* 🔔 Popup message overlay */}
