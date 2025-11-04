@@ -242,15 +242,10 @@ export default function Home() {
           muted
           className="w-full rounded-[8px] bg-[#000000]"
         />
-        <div
-          className={`guide ${
-            !focusGood ? "out-of-focus" : lightGood ? "good" : "too-dark"
-          } pointer-events-none absolute inset-0 rounded-[8px] transition-all duration-300`}
-        />
 
         {/* Center framing guide */}
         <div
-          className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[55%] h-[65%] ${centerGuideBorder} border-[3px] rounded-[6px] pointer-events-none transition-colors duration-300`}
+          className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[60%] w-[55%] h-[65%] ${centerGuideBorder} border-[3px] rounded-[6px] pointer-events-none transition-colors duration-300`}
         />
 
         {/* 🔔 Popup message overlay */}
