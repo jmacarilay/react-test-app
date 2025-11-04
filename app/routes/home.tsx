@@ -210,21 +210,14 @@ export default function Home() {
     return total / (data.length / 4);
   };
 
-  const centerGuideBorder = !focusGood
-    ? "border-[#ff0000]" // out of focus - red
-    : lightGood
-      ? "border-[#00ff5a]" // good lighting & focus - green-ish
-      : "border-[#ff9900]"; // too dark - orange
+  const centerGuideBorder = !focusGood || !lightGood
+    ? "border-[#ff9900]"
+    : "border-[#00ff5a]";
 
   // Combined status color for capture button
-  // Green when both good, red when focus bad (dominant), orange when lighting bad, red when both bad.
   const captureColorClass = (focusGood && lightGood)
     ? 'text-[#00ff5a]'
-    : (!focusGood && lightGood)
-      ? 'text-[#ff1744]'
-      : (focusGood && !lightGood)
-        ? 'text-[#ff9800]'
-        : 'text-[#ff1744]';
+    : 'text-[#ff9900]';
 
   return (
     <div className="text-center text-[#ffffff] bg-[#000000] min-h-screen">
@@ -238,7 +231,7 @@ export default function Home() {
 
         {/* Center framing guide */}
         <div
-          className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[60%] w-[80%] h-[80%] ${centerGuideBorder} border-[3px] rounded-[6px] pointer-events-none transition-colors duration-300`}
+          className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[60%] w-[80%] h-[80%] ${centerGuideBorder} border-[5px] rounded-[6px] pointer-events-none transition-colors duration-300`}
         />
 
         {/* Overlay bottom controls & status */}
