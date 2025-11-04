@@ -245,7 +245,7 @@ export default function Home() {
 
         {/* Center framing guide */}
         <div
-          className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[60%] w-[55%] h-[65%] ${centerGuideBorder} border-[3px] rounded-[6px] pointer-events-none transition-colors duration-300`}
+          className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[60%] w-[65%] h-[65%] ${centerGuideBorder} border-[3px] rounded-[6px] pointer-events-none transition-colors duration-300`}
         />
 
         {/* 🔔 Popup message overlay */}
