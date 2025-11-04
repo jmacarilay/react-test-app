@@ -1,7 +1,6 @@
-import { useEffect, useRef, useState, useCallback } from "react";
+import { useEffect, useRef, useState } from "react";
 
-// Small helper type aliases
-type TimeoutRef = ReturnType<typeof setTimeout> | null;
+// Type alias removed (popup feature deprecated)
 
 export default function Home() {
   const videoRef = useRef<HTMLVideoElement | null>(null);
@@ -11,10 +10,6 @@ export default function Home() {
   // Removed uploadResult (will reintroduce when storage logic added)
   const [focusGood, setFocusGood] = useState<boolean>(false);
   const [lightGood, setLightGood] = useState<boolean>(false);
-
-  // Popup messages
-  const [popupMsg, setPopupMsg] = useState<string>("");
-  const popupTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   // --- Camera setup + focus & lighting detection loop (inlined to satisfy exhaustive-deps) ---
   useEffect(() => {
@@ -70,12 +65,7 @@ export default function Home() {
           setFocusGood(isInFocus);
           setLightGood(isBrightEnough);
 
-          if (lastFocus !== null && lastFocus !== isInFocus) {
-            showPopup(isInFocus ? "✅ Focus OK" : "❌ Out of Focus");
-          }
-          if (lastLight !== null && lastLight !== isBrightEnough) {
-            showPopup(isBrightEnough ? "💡 Lighting OK" : "⚠️ Too Dark");
-          }
+          // Popup feedback removed; could add subtle border/glow changes instead.
 
           lastFocus = isInFocus;
           lastLight = isBrightEnough;
@@ -101,19 +91,12 @@ export default function Home() {
     };
   }, []);
 
-  // --- Popup helper ---
-  const showPopup = (msg: string): void => {
-    setPopupMsg(msg);
-    if (popupTimer.current) {
-      clearTimeout(popupTimer.current);
-    }
-    popupTimer.current = setTimeout(() => setPopupMsg(""), 1500);
-  };
+  // Popup helper removed.
 
   // --- Image capture + upload ---
   const handleCapture = (): void => {
     if (!focusGood || !lightGood) {
-      showPopup("⚠️ Fix focus/lighting first!");
+      // Previously showed a popup; now just block capture.
       return;
     }
 
@@ -248,23 +231,8 @@ export default function Home() {
           className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[60%] w-[80%] h-[80%] ${centerGuideBorder} border-[3px] rounded-[6px] pointer-events-none transition-colors duration-300`}
         />
 
-        {/* 🔔 Popup message overlay */}
-        {popupMsg && (
-          <div className="popup absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[rgba(0,0,0,0.6)] px-[20px] py-[12px] rounded-[8px] text-[1.2rem] animate-[fade_1.5s_ease]">
-            {popupMsg}
-          </div>
-        )}
-
         {/* Overlay bottom controls & status */}
         <div className="absolute inset-x-0 bottom-0 flex flex-col items-center gap-4 pb-4">
-          <div className="font-mono flex gap-6 text-sm bg-gradient-to-t from-black/70 to-black/0 px-4 py-2 rounded-md">
-            <div>
-              Focus: <span className={focusGood ? "text-[#4fc3f7]" : "text-[#f44336]"}>{focusGood ? "OK" : "Blurry"}</span>
-            </div>
-            <div>
-              Lighting: <span className={lightGood ? "text-[#4fc3f7]" : "text-[#ff9800]"}>{lightGood ? "Good" : "Too Dark"}</span>
-            </div>
-          </div>
           <div className="flex justify-center gap-10">
             <button
               onClick={handleCapture}
