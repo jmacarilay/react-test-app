@@ -245,7 +245,7 @@ export default function Home() {
 
         {/* Center framing guide */}
         <div
-          className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[60%] w-[65%] h-[65%] ${centerGuideBorder} border-[3px] rounded-[6px] pointer-events-none transition-colors duration-300`}
+          className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[60%] w-[80%] h-[80%] ${centerGuideBorder} border-[3px] rounded-[6px] pointer-events-none transition-colors duration-300`}
         />
 
         {/* 🔔 Popup message overlay */}
@@ -268,8 +268,8 @@ export default function Home() {
           <div className="flex justify-center gap-10">
             <button
               onClick={handleCapture}
-              disabled={uploading}
-              className="text-white text-lg flex flex-col gap-1 items-center justify-center font-bold active:scale-95 transition-transform"
+              disabled={uploading || !focusGood || !lightGood}
+              className={`flex flex-col gap-1 items-center justify-center font-bold active:scale-95 transition-transform text-lg ${lightGood ? 'text-[#4fc3f7]' : 'text-[#ff9800]'} ${uploading ? 'opacity-60 pointer-events-none' : ''}`}
             >
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-10">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M6.827 6.175A2.31 2.31 0 0 1 5.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 0 0-1.134-.175 2.31 2.31 0 0 1-1.64-1.055l-.822-1.316a2.192 2.192 0 0 0-1.736-1.039 48.774 48.774 0 0 0-5.232 0 2.192 2.192 0 0 0-1.736 1.039l-.821 1.316Z" />
@@ -299,23 +299,6 @@ export default function Home() {
         className="hidden"
         onChange={handleFileChange}
       />
-
-      {/* Preview removed; will be added later when storage logic is implemented */}
-
-      <style>
-        {`
-          .guide.good { border: 4px solid rgba(0,255,0,0.9); box-shadow: 0 0 12px rgba(0,255,0,0.5); }
-          .guide.out-of-focus { border: 4px solid rgba(255,0,0,0.9); box-shadow: 0 0 12px rgba(255,0,0,0.5); }
-          .guide.too-dark { border: 4px solid rgba(255,165,0,0.9); box-shadow: 0 0 12px rgba(255,165,0,0.5); }
-
-          @keyframes fade {
-            0% { opacity: 0; transform: translate(-50%, -50%) scale(0.9); }
-            10% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
-            90% { opacity: 1; }
-            100% { opacity: 0; transform: translate(-50%, -50%) scale(0.9); }
-          }
-        `}
-      </style>
     </div>
   );
 }
